@@ -1,3 +1,4 @@
+"use strict";
 // Explicit Types
 var character;
 var age;

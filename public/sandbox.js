@@ -1,3 +1,4 @@
+"use strict";
 var circles = function (radius) {
     return radius * radius * Math.PI;
 };
@@ -16,7 +17,7 @@ mixed[3] = "burger"; // will work
 var shinobi = {
     name: "itachi",
     jutsu: "genjutsu",
-    age: 15
+    age: 15,
 };
 shinobi.age = 25; // gonna work
 shinobi.name = "shishui"; //gonna work
