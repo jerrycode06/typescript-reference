@@ -1,4 +1,28 @@
 "use strict";
+// Classes
+var Invoice = /** @class */ (function () {
+    function Invoice(c, d, a) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+    Invoice.prototype.format = function () {
+        return this.client + " owes " + this.amount + " for " + this.details;
+    };
+    return Invoice;
+}());
+// create a object from class
+var invOne = new Invoice("Jerry", "work for mobile App", 6000);
+var invTwo = new Invoice("Kiba", "work for server", 8000);
+// console.log(invOne, invTwo);
+var invoices = []; //this array contains all the invoices object
+// invoices.push("Hello") // Not gonna work
+invoices.push(invOne);
+invoices.push(invTwo);
+// console.log(invoices);
+invoices.forEach(function (inv) {
+    console.log(inv.client, inv.details, inv.amount, inv.format());
+});
 var anchor = document.querySelector("a");
 // sometime it gives warning like anchor may be undefined so we will do some checks like put ! after querySelector
 console.log(anchor.href);

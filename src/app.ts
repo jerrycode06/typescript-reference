@@ -1,3 +1,34 @@
+// Classes
+class Invoice {
+  client: string;
+  details: string;
+  amount: number;
+
+  constructor(c: string, d: string, a: number) {
+    this.client = c;
+    this.details = d;
+    this.amount = a;
+  }
+
+  format() {
+    return `${this.client} owes ${this.amount} for ${this.details}`;
+  }
+}
+
+// create a object from class
+const invOne = new Invoice("Jerry", "work for mobile App", 6000);
+const invTwo = new Invoice("Kiba", "work for server", 8000);
+// console.log(invOne, invTwo);
+
+let invoices: Invoice[] = []; //this array contains all the invoices object
+// invoices.push("Hello") // Not gonna work
+invoices.push(invOne);
+invoices.push(invTwo);
+// console.log(invoices);
+invoices.forEach((inv) => {
+  console.log(inv.client, inv.details, inv.amount, inv.format());
+});
+
 const anchor = document.querySelector("a")!;
 
 // sometime it gives warning like anchor may be undefined so we will do some checks like put ! after querySelector
