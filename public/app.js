@@ -1,3 +1,19 @@
+const me = {
+    name: "Jerry",
+    age: 21,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log("I spent ", amount);
+        return amount;
+    },
+};
+// console.log(me);
+const greetPerson = (person) => {
+    console.log("Hello", person.name);
+};
+greetPerson(me);
 import { Invoice } from "./modules/invoice.js"; // because ts compiler compiles ts into js
 // create a object from class
 const invOne = new Invoice("Jerry", "work for mobile App", 6000);
