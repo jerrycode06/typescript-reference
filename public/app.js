@@ -71,3 +71,32 @@ form.addEventListener("submit", (e) => {
     }
     list.render(doc, type.value, "end");
 });
+// Generics
+// const addUID = <T extends object>(obj: T) => {
+//   let uid = Math.floor(Math.random() * 100);
+//   return { ...obj, uid };
+// };
+// More Specific
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addUID({ name: "Jerry", age: 21 });
+// let docTwo = addUID("Hello"); Not gonna work
+console.log(docOne.name);
+const docThree = {
+    uid: 12,
+    resourceName: "Coke",
+    data: { name: "Jerry" },
+};
+const docFour = {
+    uid: 12,
+    resourceName: "Coke",
+    data: "Jerry",
+};
+const docFive = {
+    uid: 12,
+    resourceName: "Coke",
+    data: ["jerry", "harry"],
+};
+console.log(docThree, docFour, docFour);
