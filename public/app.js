@@ -99,4 +99,24 @@ const docFive = {
     resourceName: "Coke",
     data: ["jerry", "harry"],
 };
-console.log(docThree, docFour, docFour);
+// console.log(docThree, docFour, docFour);
+// Enums
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+const resourceOne = {
+    uid: 1,
+    resourceType: ResourceType.BOOK,
+    data: "Harry Potter",
+};
+const resourceTwo = {
+    uid: 2,
+    resourceType: ResourceType.FILM,
+    data: { name: "Matrix", rating: 8 },
+};
+console.log(resourceOne, resourceTwo);

@@ -106,7 +106,6 @@ let docOne = addUID({ name: "Jerry", age: 21 });
 // let docTwo = addUID("Hello"); Not gonna work
 
 console.log(docOne.name);
-
 interface Resource<T> {
   uid: number;
   resourceName: string;
@@ -131,4 +130,32 @@ const docFive: Resource<string[]> = {
   data: ["jerry", "harry"],
 };
 
-console.log(docThree, docFour, docFour);
+// console.log(docThree, docFour, docFour);
+
+// Enums
+enum ResourceType {
+  BOOK,
+  AUTHOR,
+  FILM,
+  DIRECTOR,
+  PERSON,
+}
+interface EntertainmentResources<T> {
+  uid: number;
+  resourceType: number;
+  data: T;
+}
+
+const resourceOne: EntertainmentResources<string> = {
+  uid: 1,
+  resourceType: ResourceType.BOOK,
+  data: "Harry Potter",
+};
+
+const resourceTwo: EntertainmentResources<object> = {
+  uid: 2,
+  resourceType: ResourceType.FILM,
+  data: { name: "Matrix", rating: 8 },
+};
+
+console.log(resourceOne, resourceTwo);
