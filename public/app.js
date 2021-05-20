@@ -62,12 +62,17 @@ const ul = document.querySelector("ul");
 const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    let values = [
+        tofrom.value,
+        details.value,
+        amount.valueAsNumber,
+    ];
     let doc;
     if (type.value === "invoice") {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values); // It won't work with simple array so we will use Tuples
     }
     else {
-        doc = new Payments(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payments(...values);
     }
     list.render(doc, type.value, "end");
 });
@@ -120,3 +125,7 @@ const resourceTwo = {
     data: { name: "Matrix", rating: 8 },
 };
 console.log(resourceOne, resourceTwo);
+// Tuples
+let tup = ["Tom", 15, true]; // Tuples specify the data types of elements before declaration.
+// tup = ["Jerry", "17", false]; // Not gonna Work
+let student = ["Venom", 541235];
