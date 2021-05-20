@@ -23,6 +23,7 @@
 // greetPerson(me);
 import { Invoice } from "./modules/invoice.js"; // because ts compiler compiles ts into js
 import { Payments } from "./modules/payments.js";
+import { ListTemplate } from "./modules/ListTemplate.js";
 // let docOne: HasFormatter;
 // let docTwo: HasFormatter;
 // docOne = new Invoice("sasuke", "app work", 6000);
@@ -56,6 +57,9 @@ const type = document.querySelector("#type");
 const tofrom = document.querySelector("#tofrom");
 const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
+// List Template Instance
+const ul = document.querySelector("ul");
+const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     let doc;
@@ -65,5 +69,5 @@ form.addEventListener("submit", (e) => {
     else {
         doc = new Payments(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, "end");
 });
