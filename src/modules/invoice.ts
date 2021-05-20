@@ -1,4 +1,5 @@
-export class Invoice {
+import { HasFormatter } from "./../interfaces/HasFormaterr.js";
+export class Invoice implements HasFormatter {
   //   readonly client: string; // can access outside the class but you'll not change the value
   //   public details: string; // can access or can change the value outside the class
   //   private amount: number; //can't access outside the class but can access through class method

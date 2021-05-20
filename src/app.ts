@@ -1,30 +1,43 @@
 // Interfaces
-interface IsPerson {
-  name: string;
-  age: number;
-  speak(a: string): void;
-  spend(p: number): number;
-}
+// interface IsPerson {
+//   name: string;
+//   age: number;
+//   speak(a: string): void;
+//   spend(p: number): number;
+// }
 
-const me: IsPerson = {
-  name: "Jerry",
-  age: 21,
-  speak(text: string): void {
-    console.log(text);
-  },
-  spend(amount: number) {
-    console.log("I spent ", amount);
-    return amount;
-  },
-};
+// const me: IsPerson = {
+//   name: "Jerry",
+//   age: 21,
+//   speak(text: string): void {
+//     console.log(text);
+//   },
+//   spend(amount: number) {
+//     console.log("I spent ", amount);
+//     return amount;
+//   },
+// };
 
 // console.log(me);
-const greetPerson = (person: IsPerson) => {
-  console.log("Hello", person.name);
-};
-greetPerson(me);
+// const greetPerson = (person: IsPerson) => {
+//   console.log("Hello", person.name);
+// };
+// greetPerson(me);
 
 import { Invoice } from "./modules/invoice.js"; // because ts compiler compiles ts into js
+import { Payments } from "./modules/payments.js";
+import { HasFormatter } from "./interfaces/HasFormaterr.js";
+
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
+
+// docOne = new Invoice("sasuke", "app work", 6000);
+// docTwo = new Payments("sakura", "cooking", 3000);
+
+// let docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
+// console.log(docs);
 
 // create a object from class
 const invOne = new Invoice("Jerry", "work for mobile App", 6000);
@@ -60,5 +73,13 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
-  console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+
+  let doc: HasFormatter;
+  if (type.value === "invoice") {
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+  } else {
+    doc = new Payments(tofrom.value, details.value, amount.valueAsNumber);
+  }
+
+  console.log(doc);
 });
